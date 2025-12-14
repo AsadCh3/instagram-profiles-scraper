@@ -1,0 +1,18 @@
+{
+  "title": "Instagram Profiles Scraper input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "usernames": {
+      "title": "Usernames",
+      "type": "array",
+      "description": "List of Instagram usernames to scrape.",
+      "items": {
+        "type": "string"
+      },
+      "editor": "json"
+    }
+  },
+  "required": ["usernames"]
+}
+
