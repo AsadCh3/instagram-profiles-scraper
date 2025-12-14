@@ -4,3 +4,4 @@ idna>=3.6,<4.0
 apify-client
 impit
 colorama
+apify-shared
