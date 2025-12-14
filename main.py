@@ -18,6 +18,7 @@ HTTPX_TIMEOUT = httpx.Timeout(
     read=SOCK_READ_TIMEOUT,
 )
 
+
 async def fetch_profile(
     username: str,
     headers: Dict[str, str],
@@ -81,6 +82,7 @@ async def fetch_profile(
         "proxy": proxy_url,
     }
 
+
 async def run_scrape(
     usernames: List[str],
     headers: Dict[str, str],
@@ -98,12 +100,14 @@ async def run_scrape(
     results = await asyncio.gather(*tasks)
     return {"results": results}
 
+
 async def main():
     async with Actor() as actor:
         actor.log.info("Starting Instagram profiles scraper (Apify actor mode)")
         input_payload = await actor.get_input() or {}
 
         raw_usernames = input_payload.get("usernames") or []
+        print(raw_usernames)
         usernames = [u.strip() for u in raw_usernames if isinstance(u, str) and u.strip()]
         if not usernames:
             await actor.set_value("OUTPUT", {"error": "usernames list is required"})
@@ -124,6 +128,7 @@ async def main():
 
         await actor.set_value("OUTPUT", results)
         actor.log.info("Scraping completed", extra={"count": len(usernames)})
+
 
 if __name__ == "__main__":
     asyncio.run(main())
