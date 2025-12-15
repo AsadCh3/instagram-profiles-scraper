@@ -1,4 +1,4 @@
-FROM python:3.12-slim
+FROM apify/actor-python:3.11
 
 ENV PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1
