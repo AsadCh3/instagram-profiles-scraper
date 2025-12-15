@@ -129,8 +129,8 @@ async def main():
         print(results)
 
         await actor.set_value("OUTPUT", results)
+        await actor.push_data(results["results"])
         actor.log.info("Scraping completed", extra={"count": len(usernames)})
-
 
 if __name__ == "__main__":
     asyncio.run(main())
