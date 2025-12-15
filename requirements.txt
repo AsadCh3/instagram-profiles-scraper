@@ -1,8 +1,3 @@
-apify~=1.7
-httpx~=0.27
-idna>=3.6,<4.0
+apify
 apify-client
-impit
-colorama
-apify-shared
-more-itertools
+httpx
