@@ -1,12 +1,13 @@
-# Apify SDK
+# Apify
 apify==3.1.0
 apify-client==2.3.0
 
-# HTTP stack (explicit)
+# HTTPX stack (fully explicit)
 httpx==0.27.0
 httpcore==1.0.5
 anyio==4.3.0
 sniffio==1.3.1
+h11==0.14.0
 
-# Apify internal deps that are NOT guaranteed
+# Apify missing dep
 more-itertools>=10.2.0
