@@ -27,7 +27,7 @@ async def fetch_profile(
 ) -> Dict[str, Any]:
     """Fetch profile details for a single username (similar to /userdetails)."""
     url = f"https://i.instagram.com/api/v1/users/web_profile_info/?username={username}"
-    proxy_url = proxy_config.new_url() if proxy_config else None
+    proxy_url = await proxy_config.new_url() if proxy_config else None
 
     async with httpx.AsyncClient(proxy=proxy_url, timeout=timeout) as client:
         try:
@@ -115,7 +115,8 @@ async def main():
             return
 
         headers = dict(BASE_HEADERS)
-        proxy_config = actor.config.get("proxyConfiguration")
+        proxy_input = input_payload.get("proxyConfiguration")
+        proxy_config = await actor.create_proxy_configuration(actor_proxy_input=proxy_input)
         max_concurrency = 10
 
         results = await run_scrape(
