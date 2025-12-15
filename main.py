@@ -126,6 +126,7 @@ async def main():
             proxy_config=proxy_config,
             max_concurrency=max_concurrency,
         )
+        print(results)
 
         await actor.set_value("OUTPUT", results)
         actor.log.info("Scraping completed", extra={"count": len(usernames)})
